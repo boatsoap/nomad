@@ -23,10 +23,11 @@ def get_forecast(fix):
 	grid = gust.array[0:10,lat-10:lat+10,lon-10:lon+10]
 	
 	np.save("logs/forecasts/" + build_url(), grid)	
-	grid = None
 
 	print "Download Complete. Numpy File Saved:"
 	print build_url()
+
+	return grid
 
 def get_lat(lat):
 	return int(math.floor(lat))

@@ -52,10 +52,14 @@ class Controller():
 			logger.write_file(self.curr_fix.fix)
 
 			print "Downloading Forecast Information"
-			forecast.get_forecast(self.curr_fix.fix)
+			grid = forecast.get_forecast(self.curr_fix.fix)
+			print grid
 			
-
 			call(['./bin/gpsd_toggle.sh'])
+			
+			#TODO max regression
+
+			grid = None
 			print "Sleeping 6 hours"
 			time.sleep(21600)
 
